@@ -8,6 +8,7 @@ public class Goal
         Boolean incDec = true;
         int endGoal = 0;
         int current = 0;
+        float progress = 0;
 
 
 
@@ -64,9 +65,13 @@ public class Goal
 
     public void calcProgress()
     {
-        float progress = (((float)current / endGoal) * 100);
+        progress = (((float)current / endGoal) * 100);
         System.out.println("YOU ARE " + progress + "% COMPLETE WITH YOUR GOAL OF " + goalName);
     }
+
+    public void update() {}
+
+    public void complete(){System.out.println("YOU WIN ");}
 
     public void newGoal()
     {
