@@ -24,29 +24,43 @@ public class MoneyGoals extends Goal
 
     public void getCurrentProgress()
     {
-        System.out.println("How much money do you have now? ");
-        Scanner myObj = new Scanner(System.in);
+            System.out.println("How much money do you have now? ");
+            Scanner myObj = new Scanner(System.in);
 
-        current = Integer.parseInt(myObj.nextLine());
+            current = Integer.parseInt(myObj.nextLine());
     }
 
     public void calcProgress()
     {
-        if (current >= endGoal)
+        String motivate;
+        if(complete)
         {
-            complete();
+            progress = 100;
+            motivate = "You did it!";
         }
         else
         {
-            progress = (((float) current / endGoal) * 100);
-            System.out.println("You are " + progress +
-                    "% closer to buying a " + goalName + "!\nKeep it up!\n");
+            motivate = "Keep it up!";
+            progress = (((float)current / endGoal) * 100);
         }
+            System.out.println("You are " + progress +
+                    "% closer to buying a " + goalName +"!\n" + motivate);
     }
 
     public void update()
     {
-        getCurrentProgress();
+        if(!complete)
+        {
+            getCurrentProgress();
+            if (current >= endGoal)
+            {
+                complete();
+            }
+        }
+        else
+        {
+            calcProgress();
+        }
     }
 
 
@@ -55,6 +69,5 @@ public class MoneyGoals extends Goal
         getGoalName();
         getEndGoal();
         getCurrentProgress();
-        calcProgress();
     }
 }

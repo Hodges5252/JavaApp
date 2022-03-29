@@ -9,6 +9,7 @@ public class Goal
         int endGoal = 0;
         int current = 0;
         float progress = 0;
+        Boolean complete = false;
 
 
 
@@ -71,7 +72,12 @@ public class Goal
 
     public void update() {}
 
-    public void complete(){System.out.println("YOU WIN ");}
+    public void complete()
+    {
+        complete = true;
+        System.out.println("You completed your goal! Congratulations!!");
+        goalName = (goalName + " (complete)");
+    }
 
     public void newGoal()
     {

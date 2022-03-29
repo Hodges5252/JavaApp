@@ -10,6 +10,7 @@ public class HealthGoal extends Goal
     int difference;
     int distance;
 
+
     public void getIncDec() //figures out if we are counting progress up or down
     {
         Boolean loop = false;
@@ -63,7 +64,9 @@ public class HealthGoal extends Goal
             goalWeight = current - endGoal;
         }
 
-        goalName = ("Get to " + goalWeight + " " + uOM);
+        goalName = (goalName + " " + goalWeight + " " + uOM);
+        getDifference();
+        distance = difference;
     }
     public void getCurrentProgress()
     {
@@ -71,32 +74,48 @@ public class HealthGoal extends Goal
         Scanner myObj = new Scanner(System.in);
 
         current = Integer.parseInt(myObj.nextLine());
-        getDifference();
-        distance = difference;
+
     }
 
     public void calcProgress()
     {
+        String motivate;
+        if(complete)
+        {
+            progress = 100;
+            motivate = "You did it!";
+        }
+        else
+        {
+            motivate = "Keep it up!";
+            progress = (((float)current / endGoal) * 100);
+        }
 
-        progress = (((float)weightChange / distance) * 100);
         System.out.println("You are " + progress +
-                "% complete with your goal to " + goalName + "!\nKeep it up!\n" );
+                "% complete with your goal to " + goalName + "!\n" + motivate );
     }
 
     public void update()
     {
-        System.out.println("Please enter current weight");
+        if(!complete)
+        {
+            System.out.println("Please enter current weight");
 
             Scanner myObj = new Scanner(System.in);
             current = Integer.parseInt(myObj.nextLine());
 
             getDifference();
-            weightChange = difference;
+            weightChange += difference;
 
-            if (current == endGoal)
+            if ((current == endGoal) || (incDec && current > endGoal) || (!incDec && current < endGoal))
             {
                 complete();
             }
+        }
+        else
+        {
+            calcProgress();
+        }
 
 
     }
@@ -106,6 +125,7 @@ public class HealthGoal extends Goal
         difference = goalWeight - current;
     }
 
+
     public void newGoal()
     {
         getIncDec();
@@ -113,6 +133,5 @@ public class HealthGoal extends Goal
         getCurrentProgress();
         getGoalWeight();
         getDifference();
-        calcProgress();
     }
 }
