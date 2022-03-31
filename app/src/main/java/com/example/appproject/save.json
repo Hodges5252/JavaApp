@@ -1,0 +1,12 @@
+goalName = (String) loadFile.get("goalName");
+        incDec = (Boolean) loadFile.get("incDec");
+        endGoal = (long) loadFile.get("endGoal");
+        current = (long) loadFile.get("current");
+        progress = (long) loadFile.get("progress");
+        complete = (Boolean) loadFile.get("complete");
+        ID = (long) loadFile.get("ID");
+        uOM = (String) loadFile.get("uOM");
+        goalWeight = (long) loadFile.get("goalWeight");
+        weightChange = (long) loadFile.get("weightChange");
+        difference = (long) loadFile.get("difference");
+        distance = (long) loadFile.get("distance");

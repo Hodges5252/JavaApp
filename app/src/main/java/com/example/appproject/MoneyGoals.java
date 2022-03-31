@@ -5,6 +5,19 @@ import java.util.Scanner;
 public class MoneyGoals extends Goal
 {
 
+
+    public MoneyGoals() {}
+    public MoneyGoals(String pgoalName, Boolean pincDec, int pendGoal, int pcurrent, float pprogress, Boolean pcomplete, int pID)
+    {
+        goalName = pgoalName;
+        incDec = pincDec;
+        endGoal = pendGoal;
+        current = pcurrent;
+        progress = pprogress;
+        complete = pcomplete;
+        ID = pID;
+    }
+
     public void getGoalName() //gets the name of the goal
     {
         Scanner myObj = new Scanner(System.in);
@@ -66,6 +79,7 @@ public class MoneyGoals extends Goal
 
     public void newGoal()
     {
+        ID = 2;
         getGoalName();
         getEndGoal();
         getCurrentProgress();

@@ -4,12 +4,34 @@ import java.util.Scanner;
 
 public class HealthGoal extends Goal
 {
-    String uOM = "lbs";
-    int goalWeight = 0;
-    int weightChange = 0;
+    String uOM;
+    int goalWeight;
+    int weightChange;
     int difference;
     int distance;
 
+
+    public HealthGoal()
+    {
+        uOM = "lbs";
+        goalWeight = 0;
+        weightChange = 0;
+    }
+    public HealthGoal(String pgoalName, Boolean pincDec, int pendGoal, int pcurrent, float pprogress, Boolean pcomplete, int pID, String puOM, int pgoalWeight, int pweightChange, int pdifference, int pdistance)
+    {
+        goalName = pgoalName;
+        incDec = pincDec;
+        endGoal = pendGoal;
+        current = pcurrent;
+        progress = pprogress;
+        complete = pcomplete;
+        ID = pID;
+        uOM = puOM;
+        goalWeight = pgoalWeight;
+        weightChange = pweightChange;
+        difference = pdifference;
+        distance = pdistance;
+    }
 
     public void getIncDec() //figures out if we are counting progress up or down
     {
@@ -128,6 +150,7 @@ public class HealthGoal extends Goal
 
     public void newGoal()
     {
+        ID = 1;
         getIncDec();
         getEndGoal();
         getCurrentProgress();

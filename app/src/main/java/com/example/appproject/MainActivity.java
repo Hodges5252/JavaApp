@@ -1,7 +1,9 @@
 package com.example.appproject;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Build;
 import android.os.Bundle;
 
 import java.util.*;
@@ -14,10 +16,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.main_screen);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public static void main (String[] args)
     {
         Boolean quit = false;
-        Vector<Goal> gl = new Vector<Goal>();
+        SaveFile saveFile = new SaveFile();
+        saveFile.load();
+        Vector<Goal> gl = saveFile.loadVector;
+
+
+
 
         while (!quit)
         {
@@ -33,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
             {
                 case "4":
                     System.out.println("See you soon!");
+                    saveFile.save(gl);
                     quit = true;
                     break;
                 case "1":
@@ -52,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
                             Goal cash = new MoneyGoals();
                             cash.newGoal();
                             gl.add(cash);
+
+
                             break;
                         case "2":
                             Goal weight = new HealthGoal();
@@ -104,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     }
                     gl.get(option3 - 1).update();
+                    saveFile.save(gl);
                     break;
             }
         }

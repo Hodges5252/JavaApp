@@ -4,13 +4,39 @@ import java.util.Scanner;
 public class Goal
 {
 
-        String goalName = "EMPTY";
-        Boolean incDec = true;
-        int endGoal = 0;
-        int current = 0;
-        float progress = 0;
-        Boolean complete = false;
+        String goalName;
+        Boolean incDec;
+        int endGoal;
+        int current;
+        float progress;
+        Boolean complete;
+        int ID;
 
+    String uOM;
+    int goalWeight;
+    int weightChange;
+    int difference;
+    int distance;
+
+    public Goal()
+    {
+        goalName = "EMPTY";
+        incDec = true;
+        endGoal = 0;
+        current = 0;
+        progress = 0;
+        complete = false;
+    }
+    public Goal(String pgoalName, Boolean pincDec, int pendGoal, int pcurrent, float pprogress, Boolean pcomplete, int pID)
+    {
+        goalName = pgoalName;
+        incDec = pincDec;
+        endGoal = pendGoal;
+        current = pcurrent;
+        progress = pprogress;
+        complete = pcomplete;
+        ID = pID;
+    }
 
 
     public void getGoalName() //gets the name of the goal
@@ -81,6 +107,7 @@ public class Goal
 
     public void newGoal()
     {
+        ID = 0;
         getGoalName();
         getIncDec();
         getEndGoal();
