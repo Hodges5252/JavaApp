@@ -23,8 +23,8 @@ public class SaveFile
 
     public void save(@NonNull Vector<Goal> gl) {
         JSONArray saveFile = new JSONArray();
-        JSONObject saveGoal = new JSONObject();
         for (int i = 0; i < gl.size(); i++) {
+            JSONObject saveGoal = new JSONObject();
             JSONObject saveObject = new JSONObject();
             switch (gl.get(i).ID) {
                 case 0: {
