@@ -86,7 +86,7 @@ public class HealthGoal extends Goal
             goalWeight = current - endGoal;
         }
 
-        goalName = (goalName + " " + goalWeight + " " + uOM);
+        goalName = ("Get to " + goalWeight + " " + uOM);
         getDifference();
         distance = difference;
     }
@@ -110,7 +110,7 @@ public class HealthGoal extends Goal
         else
         {
             motivate = "Keep it up!";
-            progress = (((float)current / endGoal) * 100);
+            progress = (((float)weightChange / distance) * 100);
         }
 
         System.out.println("You are " + progress +

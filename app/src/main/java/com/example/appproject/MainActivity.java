@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
                     "1) Enter New Goal\n" +
                     "2) See Goal Progress\n" +
                     "3) Update Goal\n" +
-                    "4) Quit\n");
+                    "4) Quit");
             Scanner myObj = new Scanner(System.in);
             String option = myObj.nextLine();
 
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                     System.out.println("What Goal would you like to set?\n" +
                             "1) Save Money\n" +
                             "2) Gain/Lose Weight\n" +
-                            "3) Back\n");
+                            "3) Back");
 
                     Scanner myObj1 = new Scanner(System.in);
                     String option1 = myObj1.nextLine();
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                     for (int i = 0; i < gl.size(); i++)
                     {
                         String name = gl.get(i).goalName;
-                        System.out.println( "" + (i + 1) + ") " + name + "\n");
+                        System.out.println( "" + (i + 1) + ") " + name);
                     }
                     System.out.println("Pick a Goal (or choose '0' to go back)");
 
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                     {
                         System.out.println( "" + (i + 1) + ") " + gl.get(i).goalName);
                     }
-                    System.out.println("Pick a Goal (or choose '0' to go back)\n");
+                    System.out.println("Pick a Goal (or choose '0' to go back)");
 
                     Scanner myObj3 = new Scanner(System.in);
                     int option3 = Integer.parseInt(myObj3.nextLine());
